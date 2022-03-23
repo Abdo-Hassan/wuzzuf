@@ -1,0 +1,47 @@
+.jobs {
+  margin: 40px 80px;
+}
+
+.jobs-main-title {
+  margin-bottom: 40px;
+}
+
+.jobs-wrapper {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.job-wrapper {
+  padding: 25px;
+  margin: 0 25px 20px 0;
+  background-color: #fff;
+}
+
+.skill-title {
+  background-color: #c4c4c4;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  width: 20%;
+  border-radius: 5px;
+  margin-right: 10px;
+  padding: 3px 8px;
+}
+
+.single-skill {
+  margin: 13px 0;
+}
+
+.single-job {
+  margin: 0 0 10px 0;
+}
+
+.job-link {
+  font-size: 13px;
+}
+
+@media screen and (max-width: 500px) {
+  .jobs-wrapper {
+    grid-template-columns: auto;
+  }
+}
