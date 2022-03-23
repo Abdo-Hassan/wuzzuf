@@ -1,13 +1,18 @@
-export interface IAllData {
-  data: IData;
+export interface IAllJobsData {
+  data: IJobsData;
 }
 
-export interface IData {
+export interface IJobsData {
   jobs: IJobs[];
   meta: IMeta;
 }
+export interface IAllJobData {
+  data: IJobData;
+}
+export interface IJobData {
+  job: IJobs;
+}
 
-// jobs array
 export interface IJobs {
   id?: string;
   type?: string;
@@ -15,16 +20,51 @@ export interface IJobs {
   relationships?: IJobsSkills[];
 }
 
-// string array
-interface IJobsSkills {
+export interface IJobsSkills {
   id?: string;
 }
-// string array
-interface IJobsAttributes {
+
+export interface IJobsAttributes {
   title?: string;
 }
 
-interface IMeta {
+export interface IMeta {
   next: string;
   count: string;
+}
+
+export interface IAllSkillsData {
+  data: ISkillsData;
+}
+
+export interface ISkillsData {
+  jobs: IJobs[];
+  meta: IMeta;
+}
+
+export interface ISkillsAttributes {
+  name?: string;
+  type?: string;
+  importance?: string;
+  level?: string;
+}
+
+export interface ISkills {
+  id?: string;
+  type?: string;
+  attributes?: IJobsAttributes;
+  relationships?: ISkillsRelationships;
+}
+
+export interface ISkillsRelationships {
+  jobs: ISkillsJobs[];
+  skills: ISkillsRelatedSkills[];
+}
+
+interface ISkillsJobs {
+  id?: string;
+}
+
+interface ISkillsRelatedSkills {
+  id?: string;
 }

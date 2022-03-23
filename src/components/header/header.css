@@ -8,12 +8,19 @@
 
 .title {
   font-weight: bold;
+  font-size: 19px;
+  margin: 15px 0;
+  text-decoration: none;
+  color: #000;
 }
 
 .pages {
   font-size: 18px;
   cursor: pointer;
   margin: auto 10px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
 }
 
 .pages:hover {

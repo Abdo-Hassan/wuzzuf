@@ -1,19 +1,23 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './header.css';
 
 const Header = () => {
-  const navigate = useNavigate();
-
   return (
     <div className='header' data-testid='header-wrapper'>
-      <h3 className='title'>JobsNow</h3>
+      <Link className='title' to='/'>
+        JobsNow
+      </Link>
       <div data-testid='pages-wrapper'>
-        <span className='pages' onClick={() => navigate('/')}>
+        <Link className='pages' to='/'>
           Home
-        </span>
-        <span className='pages'>Search</span>
-        <span className='pages'>History</span>
+        </Link>
+        <Link className='pages' to='/search'>
+          Search
+        </Link>
+        <Link className='pages' to='/'>
+          History
+        </Link>
       </div>
     </div>
   );
