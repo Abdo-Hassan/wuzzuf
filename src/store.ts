@@ -1,8 +1,8 @@
 import { createStore } from 'redux';
-import { skillsReducer } from './redux/reducer/skillsReducer';
+import { jobsReducer } from './redux/reducer/jobsReducer';
 
 const store = createStore(
-  skillsReducer
+  jobsReducer
   // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

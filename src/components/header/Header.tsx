@@ -6,9 +6,9 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='header' data-testId='header-wrapper'>
+    <div className='header' data-testid='header-wrapper'>
       <h3 className='title'>JobsNow</h3>
-      <div data-testId='pages-wrapper'>
+      <div data-testid='pages-wrapper'>
         <span className='pages' onClick={() => navigate('/')}>
           Home
         </span>
