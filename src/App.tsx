@@ -1,14 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
+import { Route, Routes } from 'react-router-dom';
+import Header from './components/header/Header';
+import Home from './pages/Home';
+import Search from './pages/Search';
 
 function App() {
   return (
-    <Router>
+    <>
+      <Header />
       <Routes>
-        <Route path='/' element={Header()} />
+        <Route path='/' element={Home()} />
+        {/* <Route path='/search' element={Search()} /> */}
       </Routes>
-    </Router>
+    </>
   );
 }
 
