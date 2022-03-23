@@ -1,15 +1,15 @@
 import React from 'react';
-
-const style = {
-  title: {
-    fontSize: 20,
-  },
-};
+import './header.css';
 
 const Header = () => {
   return (
-    <div>
-      <p style={style.title}>Header</p>
+    <div className='header'>
+      <h3 className='title'>JobsNow</h3>
+      <div>
+        <span className='pages'>Home</span>
+        <span className='pages'>Search</span>
+        <span className='pages'>History</span>
+      </div>
     </div>
   );
 };

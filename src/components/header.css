@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto 25px;
+  background-color: #fff;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.pages {
+  font-size: 18px;
+  cursor: pointer;
+  margin: auto 10px;
+}
+
+.pages:hover {
+  text-decoration: underline;
+}
