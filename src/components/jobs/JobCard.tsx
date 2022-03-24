@@ -1,67 +1,70 @@
 import axios from 'axios';
-import { FC, useEffect, useState } from 'react';
-import { IAllJobData, IJobs, IJobsSkills } from '../../interfaces/interfaces';
+import { FC, useEffect } from 'react';
+import {
+  Job,
+  Relationships,
+  singleJob,
+  Skill,
+} from '../../generatedTypes/jobsTypes';
 import { Link } from 'react-router-dom';
 import './jobs.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchJobsSkills } from '../../redux/actions/jobsActions';
+import JobSkills from './JobSkills';
 
 interface Props {
-  job: IJobs;
+  job: Job;
+}
+
+interface State {
+  jobSkills: Skill[];
 }
 
 const JobCard: FC<Props> = ({ job }) => {
-  const [relatedSkills, setRelatedSkills] = useState<IJobsSkills[]>([]);
+  const dispatch = useDispatch();
+  const skills = useSelector((state: State) => state.jobSkills);
 
   // fetch job related skills
-  const fetchRelatedSkills = async () => {
+  const fetchJobRelatedSkills = async () => {
     try {
-      const res = await axios.get<IAllJobData>(
+      const res = await axios.get<singleJob>(
         `https://skills-api-zeta.vercel.app/job/${job?.id}/`
       );
 
-      const jobData: IAllJobData = res?.data!;
-      const relatedSkills: IJobsSkills[] = jobData?.data?.job?.relationships!;
+      if (res?.data) {
+        const jobData: singleJob = res?.data!;
+        const relatedSkills: Skill[] =
+          jobData?.data?.job?.relationships?.skills;
 
-      setRelatedSkills(relatedSkills!);
+        console.log('~ relatedSkills', relatedSkills);
+        console.log('~ jobData', jobData);
+
+        dispatch(fetchJobsSkills(relatedSkills));
+      }
+
       return res?.data;
     } catch (error) {
-      console.log('fetchRelatedSkills error', error);
+      console.log('fetchJobRelatedSkills error', error);
     }
   };
 
   useEffect(() => {
-    fetchRelatedSkills();
-  }, []);
+    fetchJobRelatedSkills();
+  }, [job]);
 
-  // fetch job skills details
-  // const fetchSkills = async () => {
-  //   try {
-  //     const res = await axios.get<IAllJobData>(
-  //       `https://skills-api-zeta.vercel.app/job/${job?.id}/`
-  //     );
-
-  //     const jobData: IAllJobData = res?.data!;
-  //     const relatedSkills: IJobsSkills[] = jobData?.data?.job?.relationships!;
-
-  //     setRelatedSkills(relatedSkills!);
-  //     return res?.data;
-  //   } catch (error) {
-  //     console.log('fetchRelatedSkills error', error);
-  //   }
-  // };
+  console.log('~ job', job);
+  console.log('~ skills', skills);
 
   return (
     <div className='job-wrapper'>
       <h3 className='single-job'>{job?.attributes?.title}</h3>
 
       <span>Related Skills:</span>
-      {/* <div className='single-skill'>
+      <div className='single-skill'>
         {skills &&
-          skills.map((jobSkill, i) => (
-            <span className='skill-title' key={i}>
-              {jobSkill}
-            </span>
-          ))}
-      </div> */}
+          skills?.length > 0 &&
+          skills.map((skill, i) => <JobSkills skill={skill} key={i} />)}
+      </div>
 
       <Link
         to={`/job/${job?.id}`}

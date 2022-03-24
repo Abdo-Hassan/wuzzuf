@@ -1,9 +1,9 @@
 import React from 'react';
-import { IJobs } from '../../interfaces/interfaces';
+import { Job } from '../../generatedTypes/jobsTypes';
 import JobCard from './JobCard';
 import './jobs.css';
 
-const Jobs = ({ jobs }: { jobs: IJobs[] }) => {
+const Jobs = ({ jobs }: { jobs: Job[] }) => {
   return (
     <div className='jobs'>
       <h1 className='jobs-main-title'>All Jobs ({jobs?.length})</h1>

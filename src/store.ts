@@ -1,9 +1,13 @@
 import { createStore } from 'redux';
 import { jobsReducer } from './redux/reducer/jobsReducer';
 
-const store = createStore(
-  jobsReducer
-  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: any;
+  }
+}
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+const store = createStore(jobsReducer, composeEnhancers());
 
 export default store;
