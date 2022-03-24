@@ -1,16 +1,14 @@
-import { Job, Skill } from './../../generatedTypes/jobsTypes';
-import { FETCH_JOB_SKILLS, FETCH_SINGLE_JOB_SKILLS } from './../types/types';
-import { FETCH_JOBS } from '../types/types';
+import { SkillProperty } from '../../generatedTypes/singleSkill';
+import { Job } from './../../generatedTypes/jobsTypes';
+import { FETCH_JOBS, FETCH_SINGLE_JOB_SKILLS } from './../types/types';
 
 interface State {
   jobs: Job[];
-  jobSkills: Skill[];
-  jobSkill: Skill;
+  jobSkill: SkillProperty;
 }
 
 const INIT_STATE: State = {
   jobs: [],
-  jobSkills: [],
   jobSkill: {},
 };
 
@@ -20,12 +18,6 @@ export const jobsReducer = (state = INIT_STATE, action: any) => {
       return {
         ...state,
         jobs: action.payload,
-      };
-
-    case FETCH_JOB_SKILLS:
-      return {
-        ...state,
-        jobSkills: action.payload,
       };
 
     case FETCH_SINGLE_JOB_SKILLS:

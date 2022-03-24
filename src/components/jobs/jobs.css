@@ -41,7 +41,15 @@
 }
 
 @media screen and (max-width: 500px) {
+  .jobs {
+    margin: 40px 30px;
+  }
+
   .jobs-wrapper {
     grid-template-columns: auto;
+  }
+
+  .job-wrapper {
+    margin: 0 10px 20px 0;
   }
 }

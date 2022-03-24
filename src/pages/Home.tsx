@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import SearchInput from '../components/search/SearchInput';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchJobs } from '../redux/actions/jobsActions';
@@ -19,7 +19,7 @@ const Home = () => {
   const fetchJobsData = async () => {
     try {
       const res = await axios.get<allJobs>(
-        'https://skills-api-zeta.vercel.app/'
+        'https://skills-api-zeta.vercel.app/jobs'
       );
       if (res?.data) {
         const data: allJobs = res?.data;

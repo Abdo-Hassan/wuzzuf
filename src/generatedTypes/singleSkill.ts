@@ -7,10 +7,10 @@ export interface Data {
 }
 
 export interface SkillProperty {
-  id: string;
-  type: string;
-  attributes: Attributes;
-  relationships: Relationships;
+  id?: string;
+  type?: string;
+  attributes?: Attributes;
+  relationships?: Relationships;
 }
 
 export interface Attributes {

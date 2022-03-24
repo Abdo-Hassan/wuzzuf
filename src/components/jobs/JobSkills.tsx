@@ -1,28 +1,25 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Skill } from '../../generatedTypes/jobsTypes';
 import { singleSkill, SkillProperty } from '../../generatedTypes/singleSkill';
 import { fetchSingleJobSkills } from '../../redux/actions/jobsActions';
 
-interface State {
-  jobSkill: SkillProperty;
-}
-
-const JobSkills = ({ skill }: { skill: Skill }) => {
+const JobSkills = ({ jobSkill }: { jobSkill: Skill }) => {
+  const [skill, setSkill] = useState<SkillProperty>({});
   const dispatch = useDispatch();
-  const jobSkill = useSelector((state: State) => state.jobSkill);
 
-  // fetch all jobs
+  // fetch job related skills
   const fetchSingleJobSkillsData = async () => {
     try {
       const res = await axios.get<singleSkill>(
-        `https://skills-api-zeta.vercel.app/skill/${skill?.id}`
+        `https://skills-api-zeta.vercel.app/skill/${jobSkill?.id}`
       );
 
       if (res?.data) {
         const skillData: singleSkill = res?.data;
         const skill: SkillProperty = skillData?.data.skill;
+        setSkill(skill);
         dispatch(fetchSingleJobSkills(skill));
       }
       return res?.data;
@@ -33,9 +30,9 @@ const JobSkills = ({ skill }: { skill: Skill }) => {
 
   useEffect(() => {
     fetchSingleJobSkillsData();
-  }, [skill]);
+  }, [jobSkill]);
 
-  return <span className='skill-title'>{jobSkill?.attributes?.name}</span>;
+  return <span className='skill-title'>{skill?.attributes?.name}</span>;
 };
 
 export default JobSkills;
