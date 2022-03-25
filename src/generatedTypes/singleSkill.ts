@@ -9,11 +9,11 @@ export interface Data {
 export interface SkillProperty {
   id?: string;
   type?: string;
-  attributes?: Attributes;
+  attributes?: SkillAttributes;
   relationships?: Relationships;
 }
 
-export interface Attributes {
+export interface SkillAttributes {
   name?: string;
   type?: string;
   importance?: string;
@@ -22,7 +22,7 @@ export interface Attributes {
 
 export interface Relationships {
   jobs?: SkillJobs[];
-  skills: SkillJobs[];
+  skills?: SkillJobs[];
 }
 
 export interface SkillJobs {

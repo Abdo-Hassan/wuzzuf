@@ -18,19 +18,19 @@ export interface singleData {
 export interface Job {
   id?: string;
   type?: Type;
-  attributes?: Attributes;
+  attributes?: JobAttributes;
   relationships?: Relationships;
 }
 
-export interface Attributes {
-  title: string;
+export interface JobAttributes {
+  title?: string;
 }
 
 export interface Relationships {
-  skills: Skill[];
+  skills: jobSkill[];
 }
 
-export interface Skill {
+export interface jobSkill {
   id?: string;
 }
 

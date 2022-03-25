@@ -1,8 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/header/Header';
 import Home from './pages/Home';
-import JobDetails from './pages/job/JobDetails';
-import Skill from './pages/Skill/Skill';
+import SkillOrJob from './pages/SkillOrJob/SkillOrJob';
 
 function App() {
   return (
@@ -10,8 +9,8 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/job/:jobId' element={<JobDetails />} />
-        <Route path='/skill/:skillId' element={<Skill />} />
+        <Route path='/job/:jobId' element={<SkillOrJob />} />
+        <Route path='/skill/:skillId' element={<SkillOrJob />} />
       </Routes>
     </>
   );

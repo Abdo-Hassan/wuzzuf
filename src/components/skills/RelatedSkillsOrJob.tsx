@@ -1,22 +1,27 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { jobSkill } from '../../generatedTypes/jobsTypes';
 import {
   SkillProperty,
   singleSkill,
   SkillJobs,
 } from '../../generatedTypes/singleSkill';
-import './skillJobs.css';
+import './skillOrJobs.css';
 
-const RelatedSkills = ({ skills }: { skills: SkillJobs }) => {
+const RelatedSkillsOrJob = ({
+  relatedSideBarLink,
+}: {
+  relatedSideBarLink: SkillJobs | jobSkill;
+}) => {
   // FIXME:replace useState with useSelector
   const [skill, setSkill] = useState<SkillProperty>({});
 
   // fetch job related skills
-  const fetchSkillsRelatedSkills = async () => {
+  const fetchRelatedSkillOrJob = async () => {
     try {
       const res = await axios.get<singleSkill>(
-        `https://skills-api-zeta.vercel.app/skill/${skills?.id}`
+        `https://skills-api-zeta.vercel.app/skill/${relatedSideBarLink?.id}`
       );
 
       if (res?.data) {
@@ -32,8 +37,8 @@ const RelatedSkills = ({ skills }: { skills: SkillJobs }) => {
   };
 
   useEffect(() => {
-    fetchSkillsRelatedSkills();
-  }, [skills]);
+    fetchRelatedSkillOrJob();
+  }, [relatedSideBarLink]);
 
   return (
     <ul>
@@ -49,4 +54,4 @@ const RelatedSkills = ({ skills }: { skills: SkillJobs }) => {
   );
 };
 
-export default RelatedSkills;
+export default RelatedSkillsOrJob;

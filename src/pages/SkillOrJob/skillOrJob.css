@@ -1,33 +1,34 @@
-.skill-main {
+.skill-or-job-main {
   margin: 40px 50px;
 }
 
-.skill-wrapper {
+.skill-or-job-wrapper {
   display: grid;
   grid-template-columns: 1fr 500px;
   grid-gap: 30px;
 }
 
-.skill-details {
+.skill-or-job-details {
   background-color: #fff;
   padding: 20px;
 }
 
-.skill-main-title {
+.skill-or-job-main-title {
   font-weight: bold;
 }
 
-.skill-description {
+.skill-or-job-description {
   font-weight: bold;
   margin: 0;
 }
 
-.skill-description-content {
+.skill-or-job-description-content {
   margin-bottom: 40px;
 }
 
 .related-jobs {
   margin-bottom: 30px;
+  margin-top: 0;
 }
 
 .related-skills-wrapper {
@@ -41,13 +42,13 @@
 }
 
 @media screen and (max-width: 500px) {
-  .skill-main {
+  .skill-or-job-main {
     margin: 40px 30px;
   }
-  .skill-wrapper {
+  .skill-or-job-wrapper {
     display: block;
   }
-  .skill-details {
+  .skill-or-job-details {
     margin-bottom: 20px;
   }
 }

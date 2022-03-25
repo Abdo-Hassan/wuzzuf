@@ -2,11 +2,11 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Skill } from '../../generatedTypes/jobsTypes';
+import { jobSkill } from '../../generatedTypes/jobsTypes';
 import { singleSkill, SkillProperty } from '../../generatedTypes/singleSkill';
 import { fetchSingleJobSkills } from '../../redux/actions/jobsActions';
 
-const JobSkills = ({ jobSkill }: { jobSkill: Skill }) => {
+const JobSkills = ({ jobSkill }: { jobSkill: jobSkill }) => {
   const [skill, setSkill] = useState<SkillProperty>({});
   const dispatch = useDispatch();
 
