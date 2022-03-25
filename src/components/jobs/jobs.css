@@ -1,5 +1,5 @@
 .jobs {
-  margin: 40px 80px;
+  margin: 40px 50px;
 }
 
 .jobs-main-title {
@@ -24,6 +24,7 @@
   font-weight: 500;
   width: 20%;
   border-radius: 5px;
+  text-decoration: none;
   margin-right: 10px;
   padding: 3px 8px;
 }

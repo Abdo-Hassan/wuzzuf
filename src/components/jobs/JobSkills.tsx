@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Skill } from '../../generatedTypes/jobsTypes';
 import { singleSkill, SkillProperty } from '../../generatedTypes/singleSkill';
 import { fetchSingleJobSkills } from '../../redux/actions/jobsActions';
@@ -32,7 +33,14 @@ const JobSkills = ({ jobSkill }: { jobSkill: Skill }) => {
     fetchSingleJobSkillsData();
   }, [jobSkill]);
 
-  return <span className='skill-title'>{skill?.attributes?.name}</span>;
+  return (
+    <Link
+      to={`/skill/${skill?.id}`}
+      state={{ skillName: skill?.attributes?.name }}
+      className='skill-title'>
+      {skill?.attributes?.name}
+    </Link>
+  );
 };
 
 export default JobSkills;

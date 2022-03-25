@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Search from '../../pages/Search';
+import Search from '../../pages/search/Search';
 
 it('should have search results', () => {
   render(<Search />);

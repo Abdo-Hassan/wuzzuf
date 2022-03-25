@@ -13,14 +13,13 @@ export interface singleJob {
 
 export interface singleData {
   job: Job;
-  meta: Meta;
 }
 
 export interface Job {
-  id: string;
-  type: Type;
-  attributes: Attributes;
-  relationships: Relationships;
+  id?: string;
+  type?: Type;
+  attributes?: Attributes;
+  relationships?: Relationships;
 }
 
 export interface Attributes {

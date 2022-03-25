@@ -1,0 +1,36 @@
+.skill-job-wrapper {
+  background-color: #f0f0f0;
+  margin: 20px 0;
+  padding: 15px 20px 10px;
+}
+
+.skill-job {
+  text-decoration: underline;
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.skill-job-info-wrapper {
+  display: flex;
+  margin-top: 10px;
+}
+
+.skill-job-info {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.skill-job-info-value {
+  font-weight: normal;
+}
+
+.skill-name {
+  color: #000;
+}
+
+@media screen and (max-width: 500px) {
+  .skill-job-info-wrapper {
+    display: block;
+  }
+}

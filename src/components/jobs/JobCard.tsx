@@ -9,8 +9,7 @@ interface Props {
 }
 
 const JobCard: FC<Props> = ({ job }) => {
-  // const jobSkill = useSelector((state: jobSkillState) => state.jobSkill);
-  const jobSkills = job?.relationships.skills;
+  const jobSkills = job?.relationships?.skills!;
 
   return (
     <div className='job-wrapper'>
@@ -20,7 +19,9 @@ const JobCard: FC<Props> = ({ job }) => {
       <div className='single-skill'>
         {jobSkills &&
           jobSkills?.length > 0 &&
-          jobSkills?.map((jobSkill) => <JobSkills jobSkill={jobSkill} />)}
+          jobSkills?.map((jobSkill, i) => (
+            <JobSkills jobSkill={jobSkill} key={i} />
+          ))}
       </div>
 
       <Link

@@ -1,0 +1,53 @@
+.skill-main {
+  margin: 40px 50px;
+}
+
+.skill-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 500px;
+  grid-gap: 30px;
+}
+
+.skill-details {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.skill-main-title {
+  font-weight: bold;
+}
+
+.skill-description {
+  font-weight: bold;
+  margin: 0;
+}
+
+.skill-description-content {
+  margin-bottom: 40px;
+}
+
+.related-jobs {
+  margin-bottom: 30px;
+}
+
+.related-skills-wrapper {
+  background-color: #d9d9d9;
+  padding: 20px;
+}
+
+.related-skills-title {
+  margin: 0 0 20px 0;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 500px) {
+  .skill-main {
+    margin: 40px 30px;
+  }
+  .skill-wrapper {
+    display: block;
+  }
+  .skill-details {
+    margin-bottom: 20px;
+  }
+}

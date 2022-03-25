@@ -14,17 +14,17 @@ export interface SkillProperty {
 }
 
 export interface Attributes {
-  name: string;
-  type: string;
-  importance: string;
-  level: string;
+  name?: string;
+  type?: string;
+  importance?: string;
+  level?: string;
 }
 
 export interface Relationships {
-  jobs: Job[];
-  skills: Job[];
+  jobs?: SkillJobs[];
+  skills: SkillJobs[];
 }
 
-export interface Job {
-  id: string;
+export interface SkillJobs {
+  id?: string;
 }
