@@ -26,7 +26,7 @@ const JobCard: FC<Props> = ({ job }) => {
 
       <Link
         to={`/job/${job?.id}`}
-        state={{ jobName: job?.attributes?.title }}
+        state={{ name: job?.attributes?.title }}
         className='job-link'
         style={{ color: '#000' }}>
         View Job details

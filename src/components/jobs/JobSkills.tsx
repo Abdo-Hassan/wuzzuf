@@ -36,7 +36,7 @@ const JobSkills = ({ jobSkill }: { jobSkill: jobSkill }) => {
   return (
     <Link
       to={`/skill/${skill?.id}`}
-      state={{ skillName: skill?.attributes?.name }}
+      state={{ name: skill?.attributes?.name }}
       className='skill-title'>
       {skill?.attributes?.name}
     </Link>

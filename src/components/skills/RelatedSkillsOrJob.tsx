@@ -46,7 +46,7 @@ const RelatedSkillsOrJob = ({
         <Link
           className='skill-name'
           to={`/skill/${skill?.id}`}
-          state={{ skillName: skill?.attributes?.name }}>
+          state={{ name: skill?.attributes?.name }}>
           {skill?.attributes?.name}
         </Link>
       </li>

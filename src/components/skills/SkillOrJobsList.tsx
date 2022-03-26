@@ -70,7 +70,12 @@ const SkillOrJobsList = ({
         to={`/${skillId ? 'job' : 'skill'}/${
           skillId ? skillDetails?.id : jobsDetails?.id
         }`}
-        className='skill-job'>
+        className='skill-job'
+        state={{
+          name: skillId
+            ? skillDetails?.attributes?.title
+            : jobsDetails?.attributes?.name,
+        }}>
         {skillId
           ? skillDetails?.attributes?.title!
           : jobsDetails?.attributes?.name!}

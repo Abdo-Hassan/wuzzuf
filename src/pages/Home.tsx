@@ -4,16 +4,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchJobs } from '../redux/actions/jobsActions';
 import { allJobs, Job } from '../generatedTypes/jobsTypes';
 import Jobs from '../components/jobs/Jobs';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../App.css';
 
 interface State {
   jobs: Job[];
+  search: string;
 }
 
 const Home = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const jobs = useSelector((state: State) => state.jobs);
+  const search = useSelector((state: State) => state.search);
 
   // fetch all jobs
   const fetchJobsData = async () => {
@@ -26,15 +30,20 @@ const Home = () => {
         const jobs: Job[] = data?.data?.jobs;
         dispatch(fetchJobs(jobs));
       }
-      return jobs;
+      return res?.data;
     } catch (error) {
       console.log('fetchJobs error', error);
     }
   };
 
   useEffect(() => {
-    fetchJobsData();
-  }, []);
+    if (search?.length > 3) {
+      navigate('/search');
+    } else {
+      navigate('/');
+      fetchJobsData();
+    }
+  }, [search]);
 
   return (
     <>

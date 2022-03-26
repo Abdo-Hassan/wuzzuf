@@ -15,12 +15,11 @@ import '../../App.css';
 
 type LocationState = {
   state: {
-    skillName: string;
-    jobName: string;
+    name: string;
   };
 };
 
-const Skill = () => {
+const SkillOrJob = () => {
   const { skillId, jobId } = useParams();
   const params = useLocation();
   const { state } = params as LocationState;
@@ -63,10 +62,7 @@ const Skill = () => {
       if (res?.data) {
         const skillData: singleJob = res?.data;
         const skills: jobSkill[] = skillData?.data?.job.relationships?.skills!;
-        // const relatedSkills: jobSkill[] =
-        //   skillData?.data?.job.relationships?.skills!;
         setRelatedList(skills);
-        // setRelatedSkills(relatedSkills);
         //  dispatch(fetchSingleSkillJobs(jobs));
       }
       return res?.data;
@@ -85,16 +81,14 @@ const Skill = () => {
 
   return (
     <div className='skill-or-job-main'>
-      <h1 className='skill-or-job-main-title'>
-        {skillId ? state?.skillName : state?.jobName}
-      </h1>
+      <h1 className='skill-or-job-main-title'>{state?.name!}</h1>
 
       <div className='skill-or-job-wrapper'>
         <div className='skill-or-job-details'>
           {skillId && (
             <>
               <h3 className='skill-or-job-description'>Description :</h3>
-              {/* FIXME:replace with skill description */}
+              {/* FIXME:replace with skill description if exist in the API */}
               <p className='skill-or-job-description-content'>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio
                 numquam sit voluptatem quo praesentium vitae voluptates, in eius
@@ -123,27 +117,30 @@ const Skill = () => {
         </div>
 
         {/* related list */}
-        <div className='related-skills-wrapper'>
-          <h3 className='related-skills-title'>
-            {skillId ? 'Related Skills :' : 'Related Jobs :'}
-          </h3>
+        {/* FIXME:add related jobs if exist in the API */}
+        {skillId && (
+          <div className='related-skills-wrapper'>
+            <h3 className='related-skills-title'>
+              {skillId ? 'Related Skills :' : 'Related Jobs :'}
+            </h3>
 
-          {relatedSideBar && relatedSideBar?.length > 0 ? (
-            relatedSideBar?.map(
-              (relatedSideBarLink: SkillJobs | jobSkill, i) => (
-                <RelatedSkillsOrJob
-                  key={i}
-                  relatedSideBarLink={relatedSideBarLink}
-                />
+            {relatedSideBar && relatedSideBar?.length > 0 ? (
+              relatedSideBar?.map(
+                (relatedSideBarLink: SkillJobs | jobSkill, i) => (
+                  <RelatedSkillsOrJob
+                    key={i}
+                    relatedSideBarLink={relatedSideBarLink}
+                  />
+                )
               )
-            )
-          ) : (
-            <div className='loader'></div>
-          )}
-        </div>
+            ) : (
+              <div className='loader'></div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default Skill;
+export default SkillOrJob;

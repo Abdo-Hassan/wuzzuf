@@ -4,18 +4,21 @@ import {
   FETCH_JOBS,
   FETCH_SINGLE_JOB_SKILLS,
   FETCH_SINGLE_SKILL_JOBS,
+  FETCH_SEARCH_JOBS,
 } from './../types/types';
 
 interface State {
   jobs: Job[];
   jobSkill: SkillProperty;
   skillJobs: SkillJobs[];
+  search: string;
 }
 
 const INIT_STATE: State = {
   jobs: [],
   jobSkill: {},
   skillJobs: [],
+  search: '',
 };
 
 export const jobsReducer = (state = INIT_STATE, action: any) => {
@@ -36,6 +39,12 @@ export const jobsReducer = (state = INIT_STATE, action: any) => {
       return {
         ...state,
         skillJobs: action.payload,
+      };
+
+    case FETCH_SEARCH_JOBS:
+      return {
+        ...state,
+        search: action.payload,
       };
 
     default:

@@ -8,8 +8,13 @@ function App() {
     <>
       <Header />
       <Routes>
+        {/* home page */}
         <Route path='/' element={<Home />} />
+        {/* search page */}
+        <Route path='/search' element={<Home />} />
+        {/* job details page */}
         <Route path='/job/:jobId' element={<SkillOrJob />} />
+        {/* skill details page */}
         <Route path='/skill/:skillId' element={<SkillOrJob />} />
       </Routes>
     </>
