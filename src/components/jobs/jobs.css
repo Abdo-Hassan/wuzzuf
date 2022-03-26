@@ -41,6 +41,16 @@
   font-size: 15px;
 }
 
+.no-search-jobs {
+  text-align: center;
+  font-size: 30px;
+  background: #fff;
+  width: 50%;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
 @media screen and (max-width: 500px) {
   .jobs {
     margin: 40px 30px;
