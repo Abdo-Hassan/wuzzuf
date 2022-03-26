@@ -81,7 +81,6 @@ const SkillOrJobsList = ({
           : jobsDetails?.attributes?.name!}
       </Link>
 
-      {/* FIXME:replace with importance & level if exist in the api */}
       <div className='skill-job-info-wrapper'>
         {/* type */}
         {!skillId && (

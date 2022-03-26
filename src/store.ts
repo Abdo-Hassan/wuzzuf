@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { jobsReducer } from './redux/reducer/jobsReducer';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -16,11 +16,10 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, jobsReducer);
 
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 const store = createStore(
   persistedReducer,
-  applyMiddleware()
-  // composeEnhancers()
+  compose(applyMiddleware(), composeEnhancers())
 );
 
 const persistor = persistStore(store);

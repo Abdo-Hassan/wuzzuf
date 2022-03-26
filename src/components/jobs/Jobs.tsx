@@ -24,7 +24,7 @@ const Jobs = ({ jobs }: { jobs: Job[] }) => {
           {jobs && jobs?.map((job, i) => <JobCard key={i} job={job} />)}
         </div>
       ) : (
-        <p className='no-search-jobs'>No job for this query</p>
+        <p className='no-search-jobs'>No job for this search result</p>
       )}
     </div>
   );

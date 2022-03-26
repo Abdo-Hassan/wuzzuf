@@ -88,7 +88,6 @@ const SkillOrJob = () => {
           {skillId && (
             <>
               <h3 className='skill-or-job-description'>Description :</h3>
-              {/* FIXME:replace with skill description if exist in the API */}
               <p className='skill-or-job-description-content'>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio
                 numquam sit voluptatem quo praesentium vitae voluptates, in eius
@@ -117,7 +116,6 @@ const SkillOrJob = () => {
         </div>
 
         {/* related list */}
-        {/* FIXME:add related jobs if exist in the API */}
         {skillId && (
           <div className='related-skills-wrapper'>
             <h3 className='related-skills-title'>

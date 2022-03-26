@@ -42,14 +42,20 @@ const SearchInput = () => {
   const debouncedChangeHandler = useCallback(debounce(handleSearch, 1000), []);
 
   return (
-    <div className='input-wrapper'>
+    <div className='input-wrapper' data-testid='input-test-wrapper'>
       <input
         placeholder='search keyword'
         className='input'
+        data-testid='input-test-box'
         type='text'
         onChange={debouncedChangeHandler}
       />
-      <img className='search' src={SearchIcon} alt='search' />
+      <img
+        className='search'
+        src={SearchIcon}
+        alt='search'
+        data-testid='input-test-icon'
+      />
     </div>
   );
 };

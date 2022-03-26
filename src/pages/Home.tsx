@@ -57,26 +57,33 @@ const Home = () => {
     dispatch(fetchSearchJobs(''));
   }, []);
 
+  console.log('loadingJobs', loadingJobs);
   return (
     <>
+      {/* search box */}
       <SearchInput />
 
       {/* full list of jobs && search results*/}
 
       {search.length < 3 ? (
-        !loadingJobs ? (
-          <InfiniteScroll
-            dataLength={jobs.length}
-            next={() => setPage(page + 2)}
-            hasMore={true}
-            loader={
-              search?.length > 3 ? <div></div> : <div className='loader'></div>
-            }>
-            <Jobs jobs={jobs} />
-          </InfiniteScroll>
-        ) : (
-          <div className='loader'></div>
-        )
+        <InfiniteScroll
+          dataLength={jobs.length}
+          next={() => setPage(page + 2)}
+          hasMore={true}
+          loader={
+            jobs?.length < 32 && search?.length < 3 ? (
+              <div className='loader'></div>
+            ) : jobs?.length < 32 && search?.length > 3 ? (
+              <div></div>
+            ) : (
+              <div></div>
+            )
+          }>
+          {/* loader={
+            search?.length > 3 ? <div></div> : <div className='loader'></div>
+          }> */}
+          <Jobs jobs={jobs} />
+        </InfiniteScroll>
       ) : (
         <Jobs jobs={jobs} />
       )}
