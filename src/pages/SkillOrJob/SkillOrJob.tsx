@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
 import { singleSkill, SkillJobs } from '../../generatedTypes/singleSkill';
 import { singleJob, jobSkill } from '../../generatedTypes/jobsTypes';
@@ -77,6 +76,7 @@ const SkillOrJob = () => {
     } else {
       fetchJobData();
     }
+    // eslint-disable-next-line
   }, [skillId]);
 
   return (

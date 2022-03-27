@@ -31,6 +31,7 @@ const JobSkills = ({ jobSkill }: { jobSkill: jobSkill }) => {
 
   useEffect(() => {
     fetchSingleJobSkillsData();
+    // eslint-disable-next-line
   }, [jobSkill]);
 
   return (

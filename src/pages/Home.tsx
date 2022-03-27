@@ -47,14 +47,17 @@ const Home = () => {
       navigate('/jobs');
       fetchJobsData();
     }
+    // eslint-disable-next-line
   }, [search]);
 
   useEffect(() => {
     fetchJobsData();
+    // eslint-disable-next-line
   }, [page]);
 
   useEffect(() => {
     dispatch(fetchSearchJobs(''));
+    // eslint-disable-next-line
   }, []);
 
   console.log('loadingJobs', loadingJobs);

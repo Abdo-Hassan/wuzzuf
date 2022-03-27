@@ -39,6 +39,7 @@ const SearchInput = () => {
   };
 
   // debounce search results
+  // eslint-disable-next-line
   const debouncedChangeHandler = useCallback(debounce(handleSearch, 1000), []);
 
   return (

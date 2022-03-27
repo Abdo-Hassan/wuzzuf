@@ -62,6 +62,7 @@ const SkillOrJobsList = ({
     } else {
       fetchJobSkills();
     }
+    // eslint-disable-next-line
   }, [relatedSingleList, skillId]);
 
   return (

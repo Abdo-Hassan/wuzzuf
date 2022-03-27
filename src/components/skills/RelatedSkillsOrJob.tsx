@@ -38,6 +38,7 @@ const RelatedSkillsOrJob = ({
 
   useEffect(() => {
     fetchRelatedSkillOrJob();
+    // eslint-disable-next-line
   }, [relatedSideBarLink]);
 
   return (
