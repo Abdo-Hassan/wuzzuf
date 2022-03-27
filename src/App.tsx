@@ -8,6 +8,7 @@ function App() {
   const navigate = useNavigate();
   useEffect(() => {
     navigate('/jobs');
+    // eslint-disable-next-line
   }, []);
 
   return (
